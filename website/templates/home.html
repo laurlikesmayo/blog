@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+
+{% block headers %}
+<style>
+    /* Custom Styles */
+    .aboutme-section {
+      background-color: #d9cafe; /* Blue */
+      text-align: center;
+    }
+    .about-section {
+      background-color: #28a745; /* Green */
+      text-align: center;
+    }
+    
+    .container-lg {
+      max-width: 1140px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<section class="section title-section">
+    <div class="container-lg">
+      <h1>Welcome to My Blog</h1>
+      <p class="lead">Exploring the world of coding, rock climbing, and everything in between.</p>
+    </div>
+</section>
+
+<!-- About the Blog Section -->
+<section class="section about-section">
+<div class="container-lg">
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>About the Blog</h2>
+        <p>This blog is a space where I share my adventures in coding and rock climbing, along with my thoughts on various topics. Whether you're here to learn, get inspired, or simply enjoy some good stories, there's something for everyone.</p>
+    </div>
+    </div>
+</div>
+</section>
+
+<!-- Blog Posts Section -->
+<section class="section posts-section">
+<div class="container-lg">
+    <h1>Latest Blog Posts</h1>
+    <hr>
+    <div class="row">
+    <div class="col-md-4">
+        <div class="card post-card bg-light border-0">
+        <img src="post1.jpg" class="card-img-top" alt="Post 1">
+        <div class="card-body">
+            <h5 class="card-title">Post Title 1</h5>
+            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
+            <a href="#" class="btn btn-dark">Read More</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card post-card bg-light border-0">
+        <img src="post2.jpg" class="card-img-top" alt="Post 2">
+        <div class="card-body">
+            <h5 class="card-title">Post Title 2</h5>
+            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
+            <a href="#" class="btn btn-dark">Read More</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card post-card bg-light border-0">
+        <img src="post3.jpg" class="card-img-top" alt="Post 3">
+        <div class="card-body">
+            <h5 class="card-title">Post Title 3</h5>
+            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
+            <a href="#" class="btn btn-dark">Read More</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="section aboutme-section">
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2>About me</h2>
+                <p>Hi, i'm Lauren - i'm a climber, a coder, and a professional Natalia Grossman fangirl. I enjoy listening to Laufey, Pop, and Jazz Music, and you can often find me engrossed in the latest murder mystery novel! I created this platform to share my small (and quite random) coding projects, as well as memorable experiences worth sharing. A warm welcome! </p>
+                <br>
+                <p>Current favourite song: L'AMOUR DE LA VIE - Billie Eilish <br> Currently working on: Jearn and my blog!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
