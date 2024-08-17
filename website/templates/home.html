@@ -15,6 +15,19 @@
     .container-lg {
       max-width: 1140px;
     }
+    .image-container {
+            padding: 20px; /* Adjust padding as needed */
+            display: inline-block; 
+            align-items: center;/* Keeps the container's width to the image's size */
+            background-color: #ffffff; /* Optional: Adds a background color around the image */
+            border-radius: 8px; /* Optional: Adds rounded corners to the padding area */
+        }
+
+        .image-container img {
+            max-width: 150px; /* Adjust the maximum width of the image */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove the extra space below the image */
+        }
   </style>
 {% endblock %}
 
@@ -23,18 +36,35 @@
 <section class="section title-section">
     <div class="container-lg">
       <h1>Welcome to My Blog</h1>
-      <p class="lead">Exploring the world of coding, rock climbing, and everything in between.</p>
+      <p class="lead">Exploring the world of coding, competition climbing, and everything in between.</p>
     </div>
 </section>
 
 <!-- About the Blog Section -->
 <section class="section about-section">
 <div class="container-lg">
+    <h2>About the Blog</h2>
+        <p>In this blog, I share the topics which I've always been interested about - climbing and coding. As I've dove deeper into these hobbies, i've been really intruiged by the mental aspect and process behind it, and thought this blog would be the perfect opportunity to explore further and share insights on this topic!</p>
     <div class="row justify-content-center">
-    <div class="col-md-8">
-        <h2>About the Blog</h2>
-        <p>This blog is a space where I share my adventures in coding and rock climbing, along with my thoughts on various topics. Whether you're here to learn, get inspired, or simply enjoy some good stories, there's something for everyone.</p>
-    </div>
+        <div class="col card p-4 m-3">
+            <h2>Expert Insights</h2>
+            <!-- <div class="image-container">
+                <img src="https://static-00.iconduck.com/assets.00/trophy-icon-2048x2048-qzkx1nrp.png" alt="Trophy Icon">
+            </div>             -->
+            <p>Mental health and mindset - such an important factor of sports, yet it is often seen as a taboo and a form of vulnerability. Dive into this section to discover different experts's opinions and insights on this crucial topic!</p>
+            <a href="/expertinsights" class="btn btn-outline-primary"> Learn More </a>
+        </div>
+        <div class="col card p-4 m-3">
+            <h2>Blog</h2>
+            <p>In this section, I share my competition and training experiences in climbing, as well as other interesting and notable experiences.</p>
+            <a href="/blog" class="btn btn-outline-primary"> Learn More </a>
+
+        </div>
+        <div class="col card p-4 m-3">
+            <h2>Coding</h2>
+            <p>My computer is always filled with small (and quite random) coding projects - instead of wasting all this storage space, I thought this would be the perfect platform to share my projects and ideas!</p>
+            <a href="/coding" class="btn btn-outline-primary"> Learn More </a>
+        </div>
     </div>
 </div>
 </section>
@@ -45,36 +75,22 @@
     <h1>Latest Blog Posts</h1>
     <hr>
     <div class="row">
-    <div class="col-md-4">
-        <div class="card post-card bg-light border-0">
-        <img src="post1.jpg" class="card-img-top" alt="Post 1">
-        <div class="card-body">
-            <h5 class="card-title">Post Title 1</h5>
-            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
-            <a href="#" class="btn btn-dark">Read More</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card post-card bg-light border-0">
-        <img src="post2.jpg" class="card-img-top" alt="Post 2">
-        <div class="card-body">
-            <h5 class="card-title">Post Title 2</h5>
-            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
-            <a href="#" class="btn btn-dark">Read More</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card post-card bg-light border-0">
-        <img src="post3.jpg" class="card-img-top" alt="Post 3">
-        <div class="card-body">
-            <h5 class="card-title">Post Title 3</h5>
-            <p class="card-text">A brief summary of the blog post content goes here. It should give a quick overview of the topic discussed.</p>
-            <a href="#" class="btn btn-dark">Read More</a>
-        </div>
-        </div>
-    </div>
+        {% for post in posts %}
+            <div class="col-md-4">
+                <div class="card post-card bg-light border-0">
+                {% if post.image_path %}
+                    <img src="{{ url_for('static', filename=post.image_path) }}" alt="{{post.image_path}}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{ post.content[:150] }}...</p>
+                    <a href="{{ url_for('views.post', id=post.id) }}" class="btn btn-dark">Read More</a>
+                </div>
+                </div>
+            </div>
+        {% else %}
+        <p>No posts</p>
+        {% endfor %}
     </div>
 </div>
 </section>
@@ -84,7 +100,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2>About me</h2>
-                <p>Hi, i'm Lauren - i'm a climber, a coder, and a professional Natalia Grossman fangirl. I enjoy listening to Laufey, Pop, and Jazz Music, and you can often find me engrossed in the latest murder mystery novel! I created this platform to share my small (and quite random) coding projects, as well as memorable experiences worth sharing. A warm welcome! </p>
+                <p>Hi, i'm Lauren - i'm a climber, a coder, and a professional Natalia Grossman fangirl. I enjoy listening to Laufey, Pop, and Jazz Music, and you can often find me engrossed in the latest murder mystery novel! I created this platform to talk about underrated and intersting topics in competitive sports, as well as sharing my small (and quite random) coding projects. A warm welcome! </p>
                 <br>
                 <p>Current favourite song: L'AMOUR DE LA VIE - Billie Eilish <br> Currently working on: Jearn and my blog!</p>
             </div>

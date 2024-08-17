@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from os import path
+import os
 from sqlalchemy import MetaData
 convention={
     "ix": 'ix_%(column_0_label)s',
@@ -21,6 +22,11 @@ app.config['SECRET_KEY'] = 'hello'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=14)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = 'website/static'  # Folder to save uploaded images
+app.config['ALLOWED_EXTENSIONS'] = {'jpg', 'jpeg', 'png', 'gif'}  # Allowed image extensions
+
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
 
 # Initialize extensions
 metadata = MetaData(naming_convention =convention)
