@@ -18,8 +18,8 @@ class Users(db.Model, UserMixin):
 
 class Post(db.Model, UserMixin):
     id = db.Column("id", db.Integer, primary_key = True)
-    date_added = db.Column(Date, default=datetime.utcnow().date)
-    category = (db.Column(db.String(500)))
+    date_added = db.Column(Date, default=datetime.now().date)
+    category = (db.Column(db.String(500))) 
     title = db.Column(db.String(100))
     image_path = db.Column(db.String(500))
     video_url=db.Column(db.String(500), default='')

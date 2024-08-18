@@ -1,15 +1,26 @@
 {% extends 'index.html' %}
 
 {% block headers %}
+<title> Lauren's Blog - Home</title>
 <style>
     /* Custom Styles */
     .aboutme-section {
-      background-color: #d9cafe; /* Blue */
+      background-color: #EECEB9; /* Blue */
       text-align: center;
+      color: rgb(0, 0, 0); /* Green */
     }
     .about-section {
-      background-color: #28a745; /* Green */
+      background-color: #BB9AB1;
       text-align: center;
+     
+    }
+    .custom-card{
+        color: rgb(31, 0, 69);
+        background-color: #c9aec1; /* Fully transparent background */
+        border: 2px solid #ab8fc0; /* Dark purple border */
+        border-radius: 8px; /* Optional: Slightly rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+        
     }
     
     .container-lg {
@@ -45,27 +56,38 @@
 <div class="container-lg">
     <h2>About the Blog</h2>
         <p>In this blog, I share the topics which I've always been interested about - climbing and coding. As I've dove deeper into these hobbies, i've been really intruiged by the mental aspect and process behind it, and thought this blog would be the perfect opportunity to explore further and share insights on this topic!</p>
-    <div class="row justify-content-center">
-        <div class="col card p-4 m-3">
-            <h2>Expert Insights</h2>
-            <!-- <div class="image-container">
-                <img src="https://static-00.iconduck.com/assets.00/trophy-icon-2048x2048-qzkx1nrp.png" alt="Trophy Icon">
-            </div>             -->
-            <p>Mental health and mindset - such an important factor of sports, yet it is often seen as a taboo and a form of vulnerability. Dive into this section to discover different experts's opinions and insights on this crucial topic!</p>
-            <a href="/expertinsights" class="btn btn-outline-primary"> Learn More </a>
+        <div class="row justify-content-center">
+            <div class="col card custom-card p-4 m-3 d-flex flex-column">
+                <h2>Expert Insights</h2>
+                <!-- <div class="image-container">
+                    <img src="https://static-00.iconduck.com/assets.00/trophy-icon-2048x2048-qzkx1nrp.png" alt="Trophy Icon">
+                </div> -->
+                <hr>
+                <p>Mental health and mindset - such an important factor of sports, yet it is often seen as a taboo and a form of vulnerability. Dive into this section to discover different experts's opinions and insights on this crucial topic!</p>
+                <div class="mt-auto">
+                    <a href="/expertinsights" class="btn btn-outline-dark">Learn More</a>
+                </div>
+            </div>
+        
+            <div class="col card custom-card p-4 m-3 d-flex flex-column">
+                <h2>Blog</h2>
+                <hr>
+                <p>In this section, I share my competition and training experiences in climbing, as well as other interesting and notable experiences.</p>
+                <div class="mt-auto">
+                    <a href="/blog" class="btn btn-outline-dark">Learn More</a>
+                </div>
+            </div>
+        
+            <div class="col card custom-card p-4 m-3 d-flex flex-column">
+                <h2>Coding</h2>
+                <hr>
+                <p>My computer is always filled with small (and quite random) coding projects - instead of wasting all this storage space, I thought this would be the perfect platform to share my projects and ideas!</p>
+                <div class="mt-auto">
+                    <a href="/coding" class="btn btn-outline-dark">Learn More</a>
+                </div>
+            </div>
         </div>
-        <div class="col card p-4 m-3">
-            <h2>Blog</h2>
-            <p>In this section, I share my competition and training experiences in climbing, as well as other interesting and notable experiences.</p>
-            <a href="/blog" class="btn btn-outline-primary"> Learn More </a>
-
-        </div>
-        <div class="col card p-4 m-3">
-            <h2>Coding</h2>
-            <p>My computer is always filled with small (and quite random) coding projects - instead of wasting all this storage space, I thought this would be the perfect platform to share my projects and ideas!</p>
-            <a href="/coding" class="btn btn-outline-primary"> Learn More </a>
-        </div>
-    </div>
+        
 </div>
 </section>
 
@@ -82,6 +104,8 @@
                     <img src="{{ url_for('static', filename=post.image_path) }}" alt="{{post.image_path}}">
                 {% endif %}
                 <div class="card-body">
+                    <small class="text-muted">{{ post.date_added.strftime('%B %d, %Y') }}</small>
+                    <hr>
                     <h5 class="card-title">{{post.title}}</h5>
                     <p class="card-text">{{ post.content[:150] }}...</p>
                     <a href="{{ url_for('views.post', id=post.id) }}" class="btn btn-dark">Read More</a>
@@ -100,6 +124,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2>About me</h2>
+                <hr>
                 <p>Hi, i'm Lauren - i'm a climber, a coder, and a professional Natalia Grossman fangirl. I enjoy listening to Laufey, Pop, and Jazz Music, and you can often find me engrossed in the latest murder mystery novel! I created this platform to talk about underrated and intersting topics in competitive sports, as well as sharing my small (and quite random) coding projects. A warm welcome! </p>
                 <br>
                 <p>Current favourite song: L'AMOUR DE LA VIE - Billie Eilish <br> Currently working on: Jearn and my blog!</p>

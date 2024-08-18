@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 
   <style>
-    .contact-section {
-      background-color: #007bff; /* Blue */
-      height: 200px; /* Adjust this value as needed */
-      color: white; /* Optional: to ensure the text is visible against the blue background */
-      }
+    body{
+      background-color: #cbbfc8;
+    }
     .section{
       text-align: center;
       display: flex;
@@ -20,18 +18,31 @@
       justify-content: center; /* Center content horizontally */
       padding: 80px 0;
       color: white;
-
     }
+
+    .contact-section {
+      background-color: #E2DAD6; /* Blue */
+      height: 200px; /* Adjust this value as needed */
+      color: black; /* Optional: to ensure the text is visible against the blue background */
+      }
+    
     .title-section {
-      background-color: #007bff; /* Blue */
+      background-color: #987D9A; /* Blue */
       text-align: center;
       height: calc(100vh - 56px);
     }
     .posts-section {
-      background-color: #ffc107; /* Yellow */
+      background-color: #F5EFE6;
+      color: black; /* Yellow */
     }
     .post-card {
       margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .post-card:hover{
+      
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
     }
     .post-card img {
       height: 200px;
@@ -85,6 +96,7 @@
           <div class="row justify-content-center">
               <div class="col-md-8">
                   <h2>Contact</h2>
+                  
                   <p>Instagram: @laurenpak__ @pakcodes @learnwithjearn <br> Email: miss.lauren.pak@gmail.com</p>
               </div>
           </div>

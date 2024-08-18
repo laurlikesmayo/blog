@@ -106,7 +106,6 @@ def insights():
 @views.route("/coding")
 def coding():
     posts = Post.query.filter_by(category='coding').all()
-    print(len(posts))
     return render_template('coding.html', posts=posts)
 
 @views.route("/blog")
