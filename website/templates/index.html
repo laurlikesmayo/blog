@@ -8,9 +8,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 
   <style>
-    body{
-      background-color: #cbbfc8;
+    body, .home-posts {
+    background-image: url("{{ url_for('static', filename='NYSI.JPEG') }}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+    body::before, .home-posts::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(253, 194, 189, 0.334); /* Browny-pinky muted color with transparency */
+        z-index: -1; /* Ensure the overlay is behind the content */
     }
+
     .section{
       text-align: center;
       display: flex;
@@ -32,7 +49,7 @@
       height: calc(100vh - 56px);
     }
     .posts-section {
-      background-color: #F5EFE6;
+      background-color: rgb(245, 239, 230, 0.95);
       color: black; /* Yellow */
     }
     .post-card {

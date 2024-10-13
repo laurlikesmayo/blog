@@ -5,12 +5,12 @@
 <style>
     /* Custom Styles */
     .aboutme-section {
-      background-color: #EECEB9; /* Blue */
+      background-color: rgb(238, 206, 185, 0.85); /* Blue */
       text-align: center;
       color: rgb(0, 0, 0); /* Green */
     }
     .about-section {
-      background-color: #BB9AB1;
+      background-color: rgb(187, 154, 177, 0.9);
       text-align: center;
      
     }
@@ -34,11 +34,24 @@
             border-radius: 8px; /* Optional: Adds rounded corners to the padding area */
         }
 
-        .image-container img {
+    .image-container img {
             max-width: 150px; /* Adjust the maximum width of the image */
             height: auto; /* Maintain aspect ratio */
             display: block; /* Remove the extra space below the image */
-        }
+    }
+    
+    .title-section{
+        background-image: url("{{ url_for('static', filename='climbing.jpg') }}");
+        background-size: cover; /* Ensure the image covers the entire background */
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .title-section h1, .image-title, .title-section p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds a dark shadow for better readability */
+    color: white; /* Ensure text color is white or another contrasting color */
+    }
+
+    
   </style>
 {% endblock %}
 
@@ -55,7 +68,7 @@
 <section class="section about-section">
 <div class="container-lg">
     <h2>About the Blog</h2>
-        <p>In this blog, I share the topics which I've always been interested about - climbing and coding. As I've dove deeper into these hobbies, i've been really intruiged by the mental aspect and process behind it, and thought this blog would be the perfect opportunity to explore further and share insights on this topic!</p>
+        <p>I've always had a joy for climbing and coding. As I continued exploring these hobbies, i've been really intruiged by the mental aspect and process behind it, and thought this blog would be the perfect opportunity to explore further and share insights on this topic!</p>
         <div class="row justify-content-center">
             <div class="col card custom-card p-4 m-3 d-flex flex-column">
                 <h2>Expert Insights</h2>
@@ -92,9 +105,9 @@
 </section>
 
 <!-- Blog Posts Section -->
-<section class="section posts-section">
+<section class="section home-posts">
 <div class="container-lg">
-    <h1>Latest Blog Posts</h1>
+    <h1 class="image-title">Latest Blog Posts</h1>
     <hr>
     <div class="row">
         {% for post in posts %}
